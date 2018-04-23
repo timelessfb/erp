@@ -12,7 +12,6 @@ CREATE TABLE IF NOT EXISTS orderTable (
 CREATE TABLE IF NOT EXISTS Tasktable (
   taskNo             VARCHAR(20) PRIMARY KEY NOT NULL,
   orderNo            VARCHAR(20)             NOT NULL,
-  FOREIGN KEY (orderNo) REFERENCES orderTable (orderNo),
   workblankNo        VARCHAR(10),
   dateOfProduce      DATE,
   colorName          VARCHAR(10),
@@ -38,7 +37,7 @@ CREATE TABLE IF NOT EXISTS Tasktable (
   slice              VARCHAR(10),
   function           VARCHAR(10),
   remark             VARCHAR(1000),
-  process            VARCHAR(1000),
+  process            BLOB,
   curState           VARCHAR(10),
   nextState          VARCHAR(10)
 )

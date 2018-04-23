@@ -71,6 +71,23 @@
   <sql id="Base_Column_List">
     orderNo, customer, date, countOfCloth, weight, uncompleted, remarkOfType
   </sql>
+
+  <select id="queryOrderByCustomerNameAndDate" parameterType="edu.uestc.ssmdemo.Model.OrderVo" resultMap="BaseResultMap">
+   SELECT * FROM ordertable
+   <where>
+     <if test="customer!=null">
+       and customer=#{customerName}
+     </if>
+     <if test="startDate != null and  startDate != ''">
+       <![CDATA[ and date >= to_date(#{startDate,jdbcType=DATE},'yyyy-MM-dd hh24:mi:ss')]]>
+     </if>
+     <if test="endDate != null and  endDate != ''">
+       <![CDATA[ and date <= to_date(#{endDate,jdbcType=DATE},'yyyy-MM-dd hh24:mi:ss')]]>
+     </if>
+   </where>
+
+  </select>
+
   <select id="selectByExample" parameterType="edu.uestc.ssmdemo.entity.OrdertableExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
