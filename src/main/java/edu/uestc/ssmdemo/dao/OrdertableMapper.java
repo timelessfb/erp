@@ -10,7 +10,7 @@ public interface OrdertableMapper {
 
     int deleteByExample(OrdertableExample example);
 
-    int deleteByPrimaryKey(Integer orderno);
+    int deleteByPrimaryKey(String orderno);
 
     int insert(Ordertable record);
 
@@ -18,7 +18,7 @@ public interface OrdertableMapper {
 
     List<Ordertable> selectByExample(OrdertableExample example);
 
-    Ordertable selectByPrimaryKey(Integer orderno);
+    Ordertable selectByPrimaryKey(String orderno);
 
     int updateByExampleSelective(@Param("record") Ordertable record, @Param("example") OrdertableExample example);
 

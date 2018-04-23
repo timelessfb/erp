@@ -114,62 +114,52 @@ public class UserinfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andPhonenoEqualTo(String value) {
+        public Criteria andPhonenoEqualTo(Integer value) {
             addCriterion("phoneNo =", value, "phoneno");
             return (Criteria) this;
         }
 
-        public Criteria andPhonenoNotEqualTo(String value) {
+        public Criteria andPhonenoNotEqualTo(Integer value) {
             addCriterion("phoneNo <>", value, "phoneno");
             return (Criteria) this;
         }
 
-        public Criteria andPhonenoGreaterThan(String value) {
+        public Criteria andPhonenoGreaterThan(Integer value) {
             addCriterion("phoneNo >", value, "phoneno");
             return (Criteria) this;
         }
 
-        public Criteria andPhonenoGreaterThanOrEqualTo(String value) {
+        public Criteria andPhonenoGreaterThanOrEqualTo(Integer value) {
             addCriterion("phoneNo >=", value, "phoneno");
             return (Criteria) this;
         }
 
-        public Criteria andPhonenoLessThan(String value) {
+        public Criteria andPhonenoLessThan(Integer value) {
             addCriterion("phoneNo <", value, "phoneno");
             return (Criteria) this;
         }
 
-        public Criteria andPhonenoLessThanOrEqualTo(String value) {
+        public Criteria andPhonenoLessThanOrEqualTo(Integer value) {
             addCriterion("phoneNo <=", value, "phoneno");
             return (Criteria) this;
         }
 
-        public Criteria andPhonenoLike(String value) {
-            addCriterion("phoneNo like", value, "phoneno");
-            return (Criteria) this;
-        }
-
-        public Criteria andPhonenoNotLike(String value) {
-            addCriterion("phoneNo not like", value, "phoneno");
-            return (Criteria) this;
-        }
-
-        public Criteria andPhonenoIn(List<String> values) {
+        public Criteria andPhonenoIn(List<Integer> values) {
             addCriterion("phoneNo in", values, "phoneno");
             return (Criteria) this;
         }
 
-        public Criteria andPhonenoNotIn(List<String> values) {
+        public Criteria andPhonenoNotIn(List<Integer> values) {
             addCriterion("phoneNo not in", values, "phoneno");
             return (Criteria) this;
         }
 
-        public Criteria andPhonenoBetween(String value1, String value2) {
+        public Criteria andPhonenoBetween(Integer value1, Integer value2) {
             addCriterion("phoneNo between", value1, value2, "phoneno");
             return (Criteria) this;
         }
 
-        public Criteria andPhonenoNotBetween(String value1, String value2) {
+        public Criteria andPhonenoNotBetween(Integer value1, Integer value2) {
             addCriterion("phoneNo not between", value1, value2, "phoneno");
             return (Criteria) this;
         }

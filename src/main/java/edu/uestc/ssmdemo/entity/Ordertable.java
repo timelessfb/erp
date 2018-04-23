@@ -3,7 +3,7 @@ package edu.uestc.ssmdemo.entity;
 import java.util.Date;
 
 public class Ordertable {
-    private Integer orderno;
+    private String orderno;
 
     private String customer;
 
@@ -13,14 +13,16 @@ public class Ordertable {
 
     private String weight;
 
+    private Double uncompleted;
+
     private String remarkoftype;
 
-    public Integer getOrderno() {
+    public String getOrderno() {
         return orderno;
     }
 
-    public void setOrderno(Integer orderno) {
-        this.orderno = orderno;
+    public void setOrderno(String orderno) {
+        this.orderno = orderno == null ? null : orderno.trim();
     }
 
     public String getCustomer() {
@@ -53,6 +55,14 @@ public class Ordertable {
 
     public void setWeight(String weight) {
         this.weight = weight == null ? null : weight.trim();
+    }
+
+    public Double getUncompleted() {
+        return uncompleted;
+    }
+
+    public void setUncompleted(Double uncompleted) {
+        this.uncompleted = uncompleted;
     }
 
     public String getRemarkoftype() {

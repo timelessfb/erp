@@ -1,18 +1,18 @@
 package edu.uestc.ssmdemo.entity;
 
 public class Userinfo {
-    private String phoneno;
+    private Integer phoneno;
 
     private String name;
 
     private String password;
 
-    public String getPhoneno() {
+    public Integer getPhoneno() {
         return phoneno;
     }
 
-    public void setPhoneno(String phoneno) {
-        this.phoneno = phoneno == null ? null : phoneno.trim();
+    public void setPhoneno(Integer phoneno) {
+        this.phoneno = phoneno;
     }
 
     public String getName() {

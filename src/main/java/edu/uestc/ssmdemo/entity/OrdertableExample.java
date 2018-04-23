@@ -142,52 +142,62 @@ public class OrdertableExample {
             return (Criteria) this;
         }
 
-        public Criteria andOrdernoEqualTo(Integer value) {
+        public Criteria andOrdernoEqualTo(String value) {
             addCriterion("orderNo =", value, "orderno");
             return (Criteria) this;
         }
 
-        public Criteria andOrdernoNotEqualTo(Integer value) {
+        public Criteria andOrdernoNotEqualTo(String value) {
             addCriterion("orderNo <>", value, "orderno");
             return (Criteria) this;
         }
 
-        public Criteria andOrdernoGreaterThan(Integer value) {
+        public Criteria andOrdernoGreaterThan(String value) {
             addCriterion("orderNo >", value, "orderno");
             return (Criteria) this;
         }
 
-        public Criteria andOrdernoGreaterThanOrEqualTo(Integer value) {
+        public Criteria andOrdernoGreaterThanOrEqualTo(String value) {
             addCriterion("orderNo >=", value, "orderno");
             return (Criteria) this;
         }
 
-        public Criteria andOrdernoLessThan(Integer value) {
+        public Criteria andOrdernoLessThan(String value) {
             addCriterion("orderNo <", value, "orderno");
             return (Criteria) this;
         }
 
-        public Criteria andOrdernoLessThanOrEqualTo(Integer value) {
+        public Criteria andOrdernoLessThanOrEqualTo(String value) {
             addCriterion("orderNo <=", value, "orderno");
             return (Criteria) this;
         }
 
-        public Criteria andOrdernoIn(List<Integer> values) {
+        public Criteria andOrdernoLike(String value) {
+            addCriterion("orderNo like", value, "orderno");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdernoNotLike(String value) {
+            addCriterion("orderNo not like", value, "orderno");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdernoIn(List<String> values) {
             addCriterion("orderNo in", values, "orderno");
             return (Criteria) this;
         }
 
-        public Criteria andOrdernoNotIn(List<Integer> values) {
+        public Criteria andOrdernoNotIn(List<String> values) {
             addCriterion("orderNo not in", values, "orderno");
             return (Criteria) this;
         }
 
-        public Criteria andOrdernoBetween(Integer value1, Integer value2) {
+        public Criteria andOrdernoBetween(String value1, String value2) {
             addCriterion("orderNo between", value1, value2, "orderno");
             return (Criteria) this;
         }
 
-        public Criteria andOrdernoNotBetween(Integer value1, Integer value2) {
+        public Criteria andOrdernoNotBetween(String value1, String value2) {
             addCriterion("orderNo not between", value1, value2, "orderno");
             return (Criteria) this;
         }
@@ -449,6 +459,66 @@ public class OrdertableExample {
 
         public Criteria andWeightNotBetween(String value1, String value2) {
             addCriterion("weight not between", value1, value2, "weight");
+            return (Criteria) this;
+        }
+
+        public Criteria andUncompletedIsNull() {
+            addCriterion("uncompleted is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUncompletedIsNotNull() {
+            addCriterion("uncompleted is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUncompletedEqualTo(Double value) {
+            addCriterion("uncompleted =", value, "uncompleted");
+            return (Criteria) this;
+        }
+
+        public Criteria andUncompletedNotEqualTo(Double value) {
+            addCriterion("uncompleted <>", value, "uncompleted");
+            return (Criteria) this;
+        }
+
+        public Criteria andUncompletedGreaterThan(Double value) {
+            addCriterion("uncompleted >", value, "uncompleted");
+            return (Criteria) this;
+        }
+
+        public Criteria andUncompletedGreaterThanOrEqualTo(Double value) {
+            addCriterion("uncompleted >=", value, "uncompleted");
+            return (Criteria) this;
+        }
+
+        public Criteria andUncompletedLessThan(Double value) {
+            addCriterion("uncompleted <", value, "uncompleted");
+            return (Criteria) this;
+        }
+
+        public Criteria andUncompletedLessThanOrEqualTo(Double value) {
+            addCriterion("uncompleted <=", value, "uncompleted");
+            return (Criteria) this;
+        }
+
+        public Criteria andUncompletedIn(List<Double> values) {
+            addCriterion("uncompleted in", values, "uncompleted");
+            return (Criteria) this;
+        }
+
+        public Criteria andUncompletedNotIn(List<Double> values) {
+            addCriterion("uncompleted not in", values, "uncompleted");
+            return (Criteria) this;
+        }
+
+        public Criteria andUncompletedBetween(Double value1, Double value2) {
+            addCriterion("uncompleted between", value1, value2, "uncompleted");
+            return (Criteria) this;
+        }
+
+        public Criteria andUncompletedNotBetween(Double value1, Double value2) {
+            addCriterion("uncompleted not between", value1, value2, "uncompleted");
             return (Criteria) this;
         }
 
