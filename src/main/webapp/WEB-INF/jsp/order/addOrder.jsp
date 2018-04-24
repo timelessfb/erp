@@ -17,43 +17,33 @@
     <link rel="stylesheet" href="jqueryui/style.css">
 </head>
 <body>
+<table>
 
-<table border="2px" width="100%">
-    <tr align="center">
+    <tr>
         <td>
-            客户名
-        </td>
-        <td>
-            开始时间
-        </td>
-        <td>
-            结束时间
-        </td>
-
-    </tr>
-    <tr align="center">
-        <td>
-            <form action="/erp/queryorder" method="get">
-             <input type="text" name="customerName">
-
-            <input type="date" id="from" name="startDate">
-
-            <input type="date" id="to" name="endDate">
-
-            <input type="submit">
+            <form action="/erp/insertorder" method="get">
+                <input type="text" name="customer">
+                <input type="date" name="date">
+                <input type="text" name="countofcloth">
+                <input type="text" name="weight">
+                <input type="text" name="uncompleted">
+                <input type="text" name="remarkoftype">
+                <input type="submit">
             </form>
-        </td>
 
+        </td>
     </tr>
 </table>
+
 <%--list--%>
 <div class="workingArea">
-    <h1 class="label label-info">分类管理</h1>
+    <h1 class="label label-info">订单信息</h1>
     <br>
     <br>
 
     <div class="listDataTableDiv">
-        <table class="table table-striped table-bordered table-hover  table-condensed" align="center" border="2px" width="100%">
+        <table class="table table-striped table-bordered table-hover  table-condensed" align="center" border="2px"
+               width="100%">
             <thead>
             <tr class="success">
                 <th>订单号</th>

@@ -21,7 +21,7 @@
     <tr>
         <td>
 
-            <form action="/queryorder" method="get" >
+            <form action="/erp/queryorder" method="get" >
                 <input type="text" name="customerName">
                 <label for="from">从</label>
                 <input type="date" id="from" name="startDate">
@@ -34,7 +34,7 @@
 
     <tr>
         <td>
-            <form action="/insertorder" method="get" >
+            <form action="/erp/insertorder" method="get" >
                 <input type="text" name="customer">
                 <input type="date" name="date">
                 <input type="text" name="countofcloth">
@@ -50,7 +50,7 @@
 
     <tr>
         <td>
-            <form action="/inserttask" method="get">
+            <form action="/erp/inserttask" method="get">
                 <input type="text" name="taskno" />
                 <input type="text" name="orderno" />
                 <input type="checkbox" value="libu" name="process">理布
@@ -63,7 +63,7 @@
 
     <tr>
         <td>
-            <form action="/gettaskbytaskno" method="get">
+            <form action="/erp/gettaskbytaskno" method="get">
                 <input type="text" name="taskno">
                 <input type="text" name="orderno">
                 <input type="submit">

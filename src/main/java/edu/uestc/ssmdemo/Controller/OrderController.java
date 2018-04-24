@@ -20,6 +20,14 @@ import java.util.UUID;
 public class OrderController {
     @Autowired
     OrderService orderService;
+    @RequestMapping(value = "addOrder")
+    public String addOrder(){
+        return "order/addOrder";
+    }
+    @RequestMapping(value = "listOrder")
+    public String listOrder(){
+        return "order/listOrder";
+    }
 
     @RequestMapping(value = "/insertorder")
     public String insertOrder(OrderTableVo orderTableVo){
