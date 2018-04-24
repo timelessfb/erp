@@ -22,22 +22,22 @@ public class OrderController {
     OrderService orderService;
 
     @RequestMapping(value = "/insertorder")
-    public void insertOrder(OrderTableVo orderTableVo){
+    public String insertOrder(OrderTableVo orderTableVo){
 
         Ordertable ordertable = ConvertUtil.OrderTableVo2Ordertable(orderTableVo);
         UUID uuid = UUID.randomUUID();
         ordertable.setOrderno(uuid.toString());
         orderService.insertOrder(ordertable);
-
+        return "redirect:/queryorder";
     }
     @RequestMapping(value = "/queryorder")
     public String queryOrderByCustomerNameAndDate(OrderVo orderVo,Model model){
 
         List<Ordertable> ordertables = orderService.queryOrderByCustomerNameAndDate(orderVo);
         model.addAttribute("ordertable",ordertables);
-        return "test";
+        return "order/listOrder";
     }
-    @RequestMapping(value = "bbb")
+    @RequestMapping(value = "testentry")
     public String test(){
         return "order/dateselect";
     }
