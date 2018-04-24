@@ -7,6 +7,8 @@ import edu.uestc.ssmdemo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by hu on 2018-04-23.
  */
@@ -23,8 +25,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Ordertable queryOrderByCustomerNameAndDate(OrderVo orderVo) {
-        Ordertable ordertable = ordertableMapper.queryOrderByCustomerNameAndDate(orderVo);
-        return ordertable;
+    public List<Ordertable> queryOrderByCustomerNameAndDate(OrderVo orderVo) {
+        List<Ordertable> ordertables = ordertableMapper.queryOrderByCustomerNameAndDate(orderVo);
+        return ordertables;
     }
 }

@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS orderTable (
-  orderNo      VARCHAR(20) PRIMARY KEY NOT NULL,
+  orderNo      VARCHAR(100) PRIMARY KEY NOT NULL,
   customer     VARCHAR(10)         NOT NULL,
   date         DATE,
-  countOfCloth DOUBLE(3, 2),
+  countOfCloth DOUBLE(5, 1),
   weight       VARCHAR(10),
-  uncompleted  DOUBLE(3, 2),
+  uncompleted  DOUBLE(5, 1),
   remarkOfType VARCHAR(100)
 )
   CHARSET = utf8;

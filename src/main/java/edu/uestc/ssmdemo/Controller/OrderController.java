@@ -1,5 +1,7 @@
 package edu.uestc.ssmdemo.Controller;
 
+import edu.uestc.ssmdemo.Convert.ConvertUtil;
+import edu.uestc.ssmdemo.Model.OrderTableVo;
 import edu.uestc.ssmdemo.Model.OrderVo;
 import edu.uestc.ssmdemo.entity.Ordertable;
 import edu.uestc.ssmdemo.service.OrderService;
@@ -8,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.sql.Date;
-import java.util.Calendar;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by hu on 2018-04-23.
@@ -20,32 +22,23 @@ public class OrderController {
     OrderService orderService;
 
     @RequestMapping(value = "/insertorder")
-    public void insertOrder(){
-        Ordertable ordertable = new Ordertable();
-        ordertable.setCustomer("ddf");
-        ordertable.setOrderno("2");
+    public void insertOrder(OrderTableVo orderTableVo){
 
-        Date date = new Date(new java.util.Date().getTime());
-
-        ordertable.setDate(date);
+        Ordertable ordertable = ConvertUtil.OrderTableVo2Ordertable(orderTableVo);
+        UUID uuid = UUID.randomUUID();
+        ordertable.setOrderno(uuid.toString());
         orderService.insertOrder(ordertable);
+
     }
     @RequestMapping(value = "/queryorder")
-    public String queryOrderByCustomerNameAndDate(Model model){
-        OrderVo orderVo = new OrderVo();
-        orderVo.setCustomerName("df");
+    public String queryOrderByCustomerNameAndDate(OrderVo orderVo,Model model){
 
-        java.util.Date today = new java.util.Date();
-        Calendar c = Calendar.getInstance();
-        c.setTime(today);
-
-        c.add(Calendar.DAY_OF_MONTH, 1);
-
-        Date date = new Date(new java.util.Date().getTime());
-
-
-        Ordertable ordertable = orderService.queryOrderByCustomerNameAndDate(orderVo);
-        model.addAttribute("ordertable",ordertable);
+        List<Ordertable> ordertables = orderService.queryOrderByCustomerNameAndDate(orderVo);
+        model.addAttribute("ordertable",ordertables);
         return "test";
+    }
+    @RequestMapping(value = "bbb")
+    public String test(){
+        return "order/dateselect";
     }
 }

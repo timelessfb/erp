@@ -75,14 +75,14 @@
   <select id="queryOrderByCustomerNameAndDate" parameterType="edu.uestc.ssmdemo.Model.OrderVo" resultMap="BaseResultMap">
    SELECT * FROM ordertable
    <where>
-     <if test="customer!=null">
+     <if test="customerName!=null and customerName !=''">
        and customer=#{customerName}
      </if>
      <if test="startDate != null and  startDate != ''">
-       <![CDATA[ and date >= to_date(#{startDate,jdbcType=DATE},'yyyy-MM-dd hh24:mi:ss')]]>
+       <![CDATA[ and date >= #{startDate}]]>
      </if>
      <if test="endDate != null and  endDate != ''">
-       <![CDATA[ and date <= to_date(#{endDate,jdbcType=DATE},'yyyy-MM-dd hh24:mi:ss')]]>
+       <![CDATA[ and date <= #{endDate}]]>
      </if>
    </where>
 

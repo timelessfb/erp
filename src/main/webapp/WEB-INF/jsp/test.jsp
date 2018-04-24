@@ -17,8 +17,12 @@
 <%--${processObj.process}--%>
 <%--${processObj.processState}--%>
 
-${ordertable.customer}
-${ordertable.date}
+${ordertable[0].orderno}
+${ordertable[0].customer}
+${ordertable[0].date}
+${ordertable[1].orderno}
+${ordertable[1].customer}
+${ordertable[1].date}
 
 
 </body>

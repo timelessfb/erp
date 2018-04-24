@@ -23,7 +23,7 @@ public interface OrdertableMapper {
      * @param orderVo
      * @return
      */
-    Ordertable queryOrderByCustomerNameAndDate(OrderVo orderVo);
+    List<Ordertable> queryOrderByCustomerNameAndDate(OrderVo orderVo);
 
     List<Ordertable> selectByExample(OrdertableExample example);
 
