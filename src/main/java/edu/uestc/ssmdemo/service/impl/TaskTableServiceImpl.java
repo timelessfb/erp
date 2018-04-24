@@ -14,12 +14,12 @@ public class TaskTableServiceImpl implements TaskTableService {
     @Autowired
     TasktableMapper tasktableMapper;
 
-    @Override
+
     public void insertTask(Tasktable tasktable) {
         tasktableMapper.insert(tasktable);
     }
 
-    @Override
+
     public Tasktable queryTaskByTaskNo(String taskno) {
         Tasktable tasktable = tasktableMapper.selectByPrimaryKey(taskno);
         return tasktable;
