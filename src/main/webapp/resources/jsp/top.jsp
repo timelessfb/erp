@@ -57,10 +57,10 @@ P {
 								</TR>
 								<TR>
 									<TD height=35 align="right">
-										当前用户：${ existUser.user_name }
+										当前用户：${ user.name }
 										&nbsp;&nbsp;&nbsp;&nbsp;
-										<A href="#" target=_top><FONT color=red>修改密码</FONT></A>
-										&nbsp;&nbsp;&nbsp;&nbsp;
+										<%--<A href="#" target=_top><FONT color=red>修改密码</FONT></A>--%>
+										<%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
 										<A href="${pageContext.request.contextPath }/user_exit" target=_top><FONT color=red>安全退出</FONT></A>
 									</TD>
 								</TR>
