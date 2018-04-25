@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,6 +36,10 @@ public class OrderController {
         Ordertable ordertable = ConvertUtil.OrderTableVo2Ordertable(orderTableVo);
         UUID uuid = UUID.randomUUID();
         ordertable.setOrderno(uuid.toString());
+        Date date = new Date();
+        ordertable.setDate(date);
+        ordertable.setUncompleted(ordertable.getCountofcloth());
+
         orderService.insertOrder(ordertable);
         return "redirect:/queryorder";
     }

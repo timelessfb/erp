@@ -15,29 +15,44 @@
     <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="jqueryui/style.css">
+
 </head>
 <body>
 <table>
-
-    <tr>
-        <td>
-            <form action="/erp/insertorder" method="get">
-                <input type="text" name="customer">
-                <input type="date" name="date">
-                <input type="text" name="countofcloth">
-                <input type="text" name="weight">
-                <input type="text" name="uncompleted">
-                <input type="text" name="remarkoftype">
-                <input type="submit">
-            </form>
-
+    <tr align="center">
+        <td align="center">
+            用户名
         </td>
+        <td>
+            匹数
+        </td>
+        <td>重量</td>
+        <td>品种备注</td>
+    </tr>
+    <tr>
+        <form action="/erp/insertorder" method="post">
+            <td>
+                <input type="text" name="customer" placeholder="请输入用户名">
+            </td>
+            <td>
+                <input type="text" name="countofcloth" placeholder="请输入匹数">
+            </td>
+            <td>
+                <input type="text" name="weight" placeholder="请输入重量">
+            </td>
+            <td>
+                <input type="text" name="remarkoftype" placeholder="品种备注">
+            </td>
+            <td>
+                <input type="submit">
+            </td>
+        </form>
     </tr>
 </table>
 
 <%--list--%>
 <div class="workingArea">
-    <h1 class="label label-info">订单信息</h1>
+    <h3 class="label label-info">订单信息</h3>
     <br>
     <br>
 
@@ -61,7 +76,7 @@
                 <tr>
                     <td>${order.orderno}</td>
                     <td>${order.customer}</td>
-                    <td>${order.date}</td>
+                    <td><fmt:formatDate value="${order.date}" type="date"/></td>
                     <td>${order.countofcloth}</td>
                     <td>${order.weight}</td>
                     <td>${order.uncompleted}</td>

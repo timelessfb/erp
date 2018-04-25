@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -18,37 +19,32 @@
 </head>
 <body>
 
-<table border="2px" width="100%">
+<table >
     <tr align="center">
-        <td>
-            客户名
-        </td>
-        <td>
-            开始时间
-        </td>
-        <td>
-            结束时间
-        </td>
-
+        <td>客户名</td>
+        <td>开始日期</td>
+        <td>结束日期</td>
     </tr>
     <tr align="center">
-        <td>
-            <form action="/erp/queryorder" method="get">
-             <input type="text" name="customerName">
-
-            <input type="date" id="from" name="startDate">
-
-            <input type="date" id="to" name="endDate">
-
-            <input type="submit">
-            </form>
-        </td>
-
+        <form action="/erp/queryorder" method="post">
+            <td>
+                <input type="text" name="customerName" placeholder="请输入查询的客户名">
+            </td>
+            <td>
+                <input type="date" id="from" name="startDate" placeholder="开始时间">
+            </td>
+            <td>
+                <input type="date" id="to" name="endDate" placeholder="结束时间">
+            </td>
+            <td>
+                <input type="submit">
+            </td>
+        </form>
     </tr>
 </table>
 <%--list--%>
 <div class="workingArea">
-    <h1 class="label label-info">分类管理</h1>
+    <h1 class="label label-info">订单信息</h1>
     <br>
     <br>
 
@@ -71,7 +67,7 @@
                 <tr>
                     <td>${order.orderno}</td>
                     <td>${order.customer}</td>
-                    <td>${order.date}</td>
+                    <td><fmt:formatDate value="${order.date}" type="date"/></td>
                     <td>${order.countofcloth}</td>
                     <td>${order.weight}</td>
                     <td>${order.uncompleted}</td>
