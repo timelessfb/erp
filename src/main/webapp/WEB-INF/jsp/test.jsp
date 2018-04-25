@@ -14,15 +14,15 @@
 <%--${tasktable.aberration}--%>
 <%--${tasktable.taskno}--%>
 <%--<p>--%>
-<%--${processObj.process}--%>
-<%--${processObj.processState}--%>
+<%--${processObj.processeList[0].process}--%>
+<%--${processObj.processeList[0].processState}--%>
 
-${ordertable[0].orderno}
-${ordertable[0].customer}
-${ordertable[0].date}
-${ordertable[1].orderno}
-${ordertable[1].customer}
-${ordertable[1].date}
+<%--${ordertable[0].orderno}--%>
+<%--${ordertable[0].customer}--%>
+<%--${ordertable[0].date}--%>
+<%--${ordertable[1].orderno}--%>
+<%--${ordertable[1].customer}--%>
+<%--${ordertable[1].date}--%>
 
 
 </body>

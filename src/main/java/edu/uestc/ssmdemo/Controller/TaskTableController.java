@@ -1,15 +1,14 @@
 package edu.uestc.ssmdemo.Controller;
 
-import edu.uestc.ssmdemo.Model.Process;
+import edu.uestc.ssmdemo.Convert.ConvertUtil;
+import edu.uestc.ssmdemo.Model.ProcessVo;
+import edu.uestc.ssmdemo.Model.TasktableVo;
 import edu.uestc.ssmdemo.Tool.SerializeObjectTool;
 import edu.uestc.ssmdemo.entity.Tasktable;
 import edu.uestc.ssmdemo.service.TaskTableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.io.IOException;
 
 /**
  * Created by hu on 2018-04-23.
@@ -20,31 +19,21 @@ public class TaskTableController {
     TaskTableService taskTableService;
 
     @RequestMapping(value = "/inserttask")
-    public void insertTask() throws IOException {
-        Tasktable tasktable = new Tasktable();
-        tasktable.setAberration("Aberration");
-        tasktable.setTaskno("001");
-        tasktable.setOrderno("111");
+    public void insertTask(TasktableVo tasktableVo) throws Exception {
 
-        Process process = new Process();
-        process.setProcess("LIBU");
-        process.setProcessState("LIBU");
-
-
-        byte[] processBytes = SerializeObjectTool.SerializeObject(process);
-        tasktable.setProcess(processBytes);
+        Tasktable tasktable = ConvertUtil.TasktableVo2Tasktable(tasktableVo);
 
         taskTableService.insertTask(tasktable);
     }
 
     @RequestMapping(value = "/gettaskbytaskno")
-    public String getTaskByTaskNo(Model model) throws Exception {
-        Tasktable tasktable = taskTableService.queryTaskByTaskNo("001");
-        byte[] processBytes = tasktable.getProcess();
-        Process processObj = (Process)SerializeObjectTool.ReSerializeObject(processBytes);
+    public String getTaskByTaskNo(TasktableVo tasktableVo) throws Exception {
+        Tasktable tasktable = taskTableService.queryTaskByTaskNo(tasktableVo.getTaskno());
 
-        model.addAttribute("tasktable",tasktable);
-        model.addAttribute("processObj",processObj);
+        byte[] processBytes = tasktable.getProcess();
+        ProcessVo processObj = (ProcessVo)SerializeObjectTool.ReSerializeObject(processBytes);
+
+        System.out.println(processObj);
         return "test";
     }
 }

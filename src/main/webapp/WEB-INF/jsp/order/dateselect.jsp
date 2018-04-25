@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>jQuery UI 日期选择器（Datepicker） - 选择一个日期范围</title>
+    <title>管理系统</title>
     <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
     <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
@@ -21,7 +21,7 @@
     <tr>
         <td>
 
-            <form action="/queryorder" method="get" >
+            <form action="/erp/queryorder" method="get" >
                 <input type="text" name="customerName">
                 <label for="from">从</label>
                 <input type="date" id="from" name="startDate">
@@ -34,7 +34,7 @@
 
     <tr>
         <td>
-            <form action="/insertorder" method="get" >
+            <form action="/erp/insertorder" method="get" >
                 <input type="text" name="customer">
                 <input type="date" name="date">
                 <input type="text" name="countofcloth">
@@ -46,7 +46,33 @@
 
         </td>
     </tr>
+
+
+    <tr>
+        <td>
+            <form action="/erp/inserttask" method="get">
+                <input type="text" name="taskno" />
+                <input type="text" name="orderno" />
+                <input type="checkbox" value="libu" name="process">理布
+                <input type="checkbox" value="peiding" name="process">柸定
+                <input type="checkbox" value="ranse" name="process">染色
+                <input type="submit" />
+            </form>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <form action="/erp/gettaskbytaskno" method="get">
+                <input type="text" name="taskno">
+                <input type="text" name="orderno">
+                <input type="submit">
+            </form>
+        </td>
+    </tr>
+
 </table>
+
 
 
 </body>

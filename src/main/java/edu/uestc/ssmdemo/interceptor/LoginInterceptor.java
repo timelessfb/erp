@@ -7,25 +7,29 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Arrays;
 
 public class LoginInterceptor  implements HandlerInterceptor{
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        String[] URL = new String[]{"home_page"};
+        String[] ignoreURI = new String[]{"login"};
         String url = httpServletRequest.getRequestURI();
-        url = url.substring(5);
-        //System.out.println(url + "   " + url.substring(5));
-        if (Arrays.asList(URL).contains(url)){
+        boolean loginFlag = false;
+        for(String s: ignoreURI){
+            if(url.contains(s)){
+                loginFlag = true;
+                break;
+            }
+        }
+        if (!loginFlag){
             HttpSession httpSession = httpServletRequest.getSession();
             if(httpSession.getAttribute("user") != null){
                 Userinfo user = (Userinfo) httpSession.getAttribute("user");
                 System.out.println("拦截器：" + user.getName() + " " + user.getPassword());
-                return true;
+                loginFlag = true;
+            }else {
+                httpServletRequest.getRequestDispatcher("/WEB-INF/jsp/login/login.jsp").forward(httpServletRequest,httpServletResponse);
             }
-            httpServletRequest.getRequestDispatcher("/WEB-INF/jsp/login/login.jsp").forward(httpServletRequest,httpServletResponse);
-            return false;
         }
-        return true;
+        return loginFlag;
     }
 
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {

@@ -130,10 +130,10 @@ A.active {
 											cellPadding=2 width=155 align=center border=0>
 											<TBODY>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }" target=main>－ 新增订单</A></TD>
+													<TD class=menuSmall><A class=style2 href="../../addOrder" target=main>－ 新增订单</A></TD>
 												</TR>
 												<TR> 
-													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }" target=main>－ 查询订单</A></TD>
+													<TD class=menuSmall><A class=style2 href="../../listOrder" target=main>－ 查询订单</A></TD>
 												</TR>
 												
 											</TBODY>
