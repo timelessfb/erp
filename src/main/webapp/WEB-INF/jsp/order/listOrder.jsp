@@ -19,6 +19,8 @@
 </head>
 <body>
 
+<%--<a href="/erp/testentry" >测试</a>--%>
+
 <table >
     <tr align="center">
         <td>客户名</td>

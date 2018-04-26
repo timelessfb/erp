@@ -22,17 +22,13 @@ public class ConvertUtil {
     public static Tasktable TasktableVo2Tasktable(TasktableVo tasktableVo) throws IOException {
 
         Tasktable tasktable = new Tasktable();
-        tasktable.setOrderno(tasktableVo.getOrderno());
-        tasktable.setTaskno(tasktableVo.getTaskno());
-
-
+        BeanRefUtil.TasktableVo2Tasktable(tasktableVo,tasktable);
         ProcessVo processVo = new ProcessVo();
         for (String p : tasktableVo.getProcess()) {
             Process process = new Process();
             process.setProcess(p);
             processVo.getProcesseList().add(process);
         }
-
         byte[] processBytes = SerializeObjectTool.SerializeObject(processVo);
         tasktable.setProcess(processBytes);
         return  tasktable;
@@ -46,10 +42,10 @@ public class ConvertUtil {
         String remarkoftype = orderTableVo.getRemarkoftype();
         String countofcloth = orderTableVo.getCountofcloth();
 
-        Assert.assertTrue("countofcloth为空",countofcloth !=null && countofcloth.length()!=0);
-        Assert.assertTrue("customer为空",customer !=null && customer.length()!=0);
-        Assert.assertTrue("weight为空",weight !=null && weight.length()!=0);
-        Assert.assertTrue("remarkoftype为空",remarkoftype !=null && remarkoftype.length()!=0);
+        Assert.assertTrue("countofcloth为空",countofcloth !=null && !"".equals(countofcloth));
+        Assert.assertTrue("customer为空",customer !=null && !"".equals(customer));
+        Assert.assertTrue("weight为空",weight !=null && !"".equals(weight));
+        Assert.assertTrue("remarkoftype为空",remarkoftype !=null && !"".equals(remarkoftype));
 
         ordertable.setCustomer(customer);
         ordertable.setWeight(weight);
