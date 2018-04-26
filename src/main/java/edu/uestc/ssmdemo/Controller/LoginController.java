@@ -28,7 +28,7 @@ public class LoginController {
 
     @RequestMapping("login")
     public String Login(Userinfo user, HttpSession httpSession){
-        System.out.println(user.getName() + "   " + user.getPassword());
+        System.out.println(user.getUserPassword() + "   " + user.getUserPhoneno());
         Userinfo u = userService.login(user);
         if (u != null){
             //System.out.println("u不为空");
@@ -43,5 +43,4 @@ public class LoginController {
         session.removeAttribute("user");
         return "forward:loginPage";
     }
-
 }
