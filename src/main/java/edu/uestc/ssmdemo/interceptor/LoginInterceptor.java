@@ -23,7 +23,7 @@ public class LoginInterceptor  implements HandlerInterceptor{
             HttpSession httpSession = httpServletRequest.getSession();
             if(httpSession.getAttribute("user") != null){
                 Userinfo user = (Userinfo) httpSession.getAttribute("user");
-                System.out.println("拦截器：" + user.getUserPhoneno() + " " + user.getUserPhoneno());
+//                System.out.println("拦截器：" + user.getUserPhoneno() + " " + user.getUserPhoneno());
                 loginFlag = true;
             }else {
                 httpServletRequest.getRequestDispatcher("/WEB-INF/jsp/login/login.jsp").forward(httpServletRequest,httpServletResponse);

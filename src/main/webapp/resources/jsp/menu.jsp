@@ -156,7 +156,7 @@ A.active {
 													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }/addAdmin" target=main>－ 新增管理员</A></TD>
 												</TR>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }/linkman_findByPage" target=main>－ 管理员列表</A></TD>
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }/listAdmin" target=main>－ 管理员列表</A></TD>
 												</TR>
 												
 											</TBODY>

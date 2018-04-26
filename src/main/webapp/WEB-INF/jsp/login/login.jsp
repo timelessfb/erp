@@ -70,7 +70,7 @@
                                         <TR>
                                             <TD style="HEIGHT: 28px" width=80>登 录 名：</TD>
                                             <TD style="HEIGHT: 28px" width=150>
-                                                <INPUT id="userPhoneno" style="WIDTH: 130px" name="userPhoneno" placeholder="用户名" type="text"></TD>
+                                                <INPUT id="userPhoneno" style="WIDTH: 130px" name="userPhoneno" placeholder="用户电话号码" type="text"></TD>
                                             <TD style="HEIGHT: 28px" width=370>
                                                 <SPAN id="RequiredFieldValidator3" style="FONT-WEIGHT: bold; VISIBILITY: hidden; COLOR: white">请输入登录名</SPAN></TD></TR>
                                         <TR>

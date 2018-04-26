@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<TITLE>添加管理员</TITLE>
+<TITLE>修改账户信息</TITLE>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <LINK href="${pageContext.request.contextPath }/resources/css/Style.css" type=text/css rel=stylesheet>
 <LINK href="${pageContext.request.contextPath }/resources/css/Manage.css" type=text/css rel=stylesheet>
@@ -62,8 +62,8 @@
 </script>
 
 <BODY>
-	<FORM id=form1 name=form1 action="addsubmit" method=post>
-
+	<FORM id=form1 name=form1 action="saveEditInfo" method=post>
+		<input type="hidden" name="userId" value="${user.userId }"/>
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
 				<TR>
@@ -84,7 +84,7 @@
 					<TD vAlign=top width="100%" bgColor=#ffffff>
 						<TABLE cellSpacing=0 cellPadding=5 width="100%" border=0>
 							<TR>
-								<TD class=manageHead>当前位置：权限管理 &gt; 添加管理员</TD>
+								<TD class=manageHead>当前位置：修改账号密码</TD>
 							</TR>
 							<TR>
 								<TD height=2></TD>
@@ -105,7 +105,7 @@
 							</tr>
 							<tr>
 								<td  align="right">管理员姓名：</td>
-								<td colspan="3"><input id="userName" type="text" name="userName" style="WIDTH: 180px" placeholder="姓名"/></td>
+								<td colspan="3"><input id="userName" type="text" name="userName" style="WIDTH: 180px" value="${user.userName}"/></td>
 							</tr>
 							<tr>
 								<td   align="right"><b>设置登陆密码</b></td>
@@ -115,14 +115,14 @@
 							<tr>
 								<td  align="right">登录密码：</td>
 								<td>
-									<INPUT type="password" class=textbox id="userPassword" style="WIDTH: 180px" maxLength=50 name="userPassword" placeholder="设置你的登陆密码">
+									<INPUT type="password" class=textbox id="userPassword" style="WIDTH: 180px" maxLength=50 name="userPassword" value="${user.userPassword}">
 								</td>
 							</tr>
 
 							<tr>
 								<td  align="right">确认密码：</td>
 								<td>
-									<INPUT type="password" class=textbox id="repeatpassword" style="WIDTH: 180px" maxLength=50 name="reuserPassword" placeholder="请再次输入你的密码">
+									<INPUT type="password" class=textbox id="repeatpassword" style="WIDTH: 180px" maxLength=50 name="reuserPassword" value="${user.userPassword}">
 								</td>
 							</tr>
 
@@ -145,7 +145,7 @@
 							<TR>
 								<td  align="right">管理员电话 ：</td>
 								<td>
-									<INPUT class=textbox id="userPhoneno" style="WIDTH: 180px" maxLength=50 name="userPhoneno" placeholder="11位电话号码">
+									<INPUT class=textbox id="userPhoneno" style="WIDTH: 180px" maxLength=50 name="userPhoneno" value="${user.userPhoneno}">
 								</td>
 								<%--<td>联系人手机 ：</td>--%>
 								<%--<td>--%>
@@ -155,7 +155,7 @@
 							<tr>
 								<td></td>
 								<td rowspan=2 align="center">
-									<button>提   交</button>
+									<button>保   存</button>
 									<%--<INPUT class=button id=sButton2 type=submit value="提 交 " name=sButton2>--%>
 								</td>
 							</tr>
