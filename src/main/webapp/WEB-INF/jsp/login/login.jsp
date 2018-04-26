@@ -18,39 +18,26 @@
     <META content="MSHTML 6.00.6000.16809" name=GENERATOR></HEAD>
 
 <
-<script>
-//    $(function () {
-//
-//        $("form.form1").submit(function () {
-//            if(0 == $("#name").val().length){
-//                $("span.RequiredFieldValidator3").style.display="block";
-//                return false;
-//            }
-//            if (0 == $("#password").val().length){
-//                $("span.RequiredFieldValidator4").style.display="block";
-//                return false;
-//            }
-//            return true;
-//        });
-//
-//        $("form.form1 input").keyup(function () {
-//            $("span.RequiredFieldValidator3").style.display="none";
-//            $("span.RequiredFieldValidator4").style.display="none";
-//        });
-//    });
+<script type="text/javascript">
     function formSubmit(){
-        if (0 == $("#name").val().length){
-            $("span.RequiredFieldValidator3").style.display="block";
+        if (document.getElementById("name").value == ""){
+            document.getElementById("RequiredFieldValidator3").style.visibility="visible";
             return false;
-        }
-        if (0 == $("#password").val().length){
-            $("span.RequiredFieldValidator4").style.display="block";
+        } else if (document.getElementById("password").value == ""){
+            document.getElementById("RequiredFieldValidator4").style.visibility="visible";
             return false;
+        }else {
+            return true;
         }
-        $("form.form1").submit();
-        return true;
     }
-
+    $(function () {
+        document.getElementById("password").keyup(function () {
+            document.getElementById("RequiredFieldValidator3").style.visibility="hidden";
+        });
+        document.getElementById("name").keyup(function () {
+            document.getElementById("RequiredFieldValidator4").style.visibility="hidden";
+        });
+    });
 
 </script>
 
@@ -102,10 +89,10 @@
                                             <TD style="HEIGHT: 18px"></TD></TR>
                                         <TR>
                                             <TD>
-                                                <INPUT id=btn
+                                                <INPUT id="button"
                                                        style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px"
-                                                       onclick="formSubmit();"
-                                                       type="image" src="${pageContext.request.contextPath}/resources/images/login_button.gif" name=btn>
+                                                       onclick="return formSubmit()"
+                                                       type="image" src="${pageContext.request.contextPath}/resources/images/login_button.gif" name="button">
                                             </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
                 <TD></TD>
                 <TR>

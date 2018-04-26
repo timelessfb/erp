@@ -28,13 +28,19 @@ public class LoginController {
 
     @RequestMapping("login")
     public String Login(Userinfo user, HttpSession httpSession){
-        System.out.println(user.getName() + "   " + user.getPassword());
+        System.out.println(user.getUserPassword() + "   " + user.getUserPhoneno());
         Userinfo u = userService.login(user);
         if (u != null){
-            System.out.println("u不为空");
+            //System.out.println("u不为空");
             httpSession.setAttribute("user",u);
             return "redirect:home_page";
         }
+        return "forward:loginPage";
+    }
+
+    @RequestMapping("user_exit")
+    public String User_exit(HttpSession session){
+        session.removeAttribute("user");
         return "forward:loginPage";
     }
 }
