@@ -71,64 +71,7 @@
             </tr>
             </thead>
             <tbody>
-            <%--private String taskno;缸号--%>
 
-            <%--private String orderno;订单号--%>
-
-            <%--private String workblankno;--%>
-
-            <%--private Date dateofproduce;生产日期--%>
-
-            <%--private String colorname;--%>
-
-            <%--private String colorno;--%>
-
-            <%--private String deadline;--%>
-
-            <%--private String type;--%>
-
-            <%--private String weightpercloth;--%>
-
-            <%--private String mouse;--%>
-
-            <%--private String countofclothoftask;--%>
-
-            <%--private String weightoftask;--%>
-
-            <%--private String weightperdoor;--%>
-
-            <%--private String dyetype;--%>
-
-            <%--private String lightsource;--%>
-
-            <%--private String lightface;--%>
-
-            <%--private Double ph;--%>
-
-            <%--private String deoil;--%>
-
-            <%--private String fixation;--%>
-
-            <%--private String polish;--%>
-
-            <%--private String aberration;--%>
-
-            <%--private String detection;--%>
-
-            <%--private String fastness;--%>
-
-            <%--private String application;--%>
-
-            <%--private String slice;--%>
-
-            <%--private String function;--%>
-
-            <%--private String remark;--%>
-
-            <%--private String curstate;当前生产状态--%>
-
-            <%--private String nextstate;--%>
-            <%--private byte[] process;生产流程--%>
             <c:forEach items="${tasks}" var="task">
                 <p class="trace_show">
                     <tr>
@@ -152,19 +95,19 @@
                         <td>重量：${task.weightoftask}</td>
                         <td>门幅克重：${task.weightperdoor}</td>
                         <td>定染类别：${task.dyetype}</td>
-                            <%--<td>对色光源：${task.dyetype}</td>--%>
-                        <td>对色面：${task.dyetype}</td>
-                        <td>ph值：${task.dyetype}</td>
-                        <td>去油：${task.dyetype}</td>
-                        <td>固色：${task.dyetype}</td>
-                        <td>抛光：${task.dyetype}</td>
-                        <td>色差要求：${task.dyetype}</td>
-                        <td>检测标准：${task.dyetype}</td>
-                        <td>牢度要求：${task.dyetype}</td>
-                        <td>产品用途：${task.dyetype}</td>
-                        <td>浆边浆切边：${task.dyetype}</td>
-                        <td>生理性整理：${task.dyetype}</td>
-                        <td>生产备注：${task.dyetype}</td>
+                        <td>对色光源：${task.lightsource}</td>
+                        <td>对色面：${task.lightface}</td>
+                        <td>ph值：${task.ph}</td>
+                        <td>去油：${task.deoil}</td>
+                        <td>固色：${task.fixation}</td>
+                        <td>抛光：${task.polish}</td>
+                        <td>色差要求：${task.aberration}</td>
+                        <td>检测标准：${task.detection}</td>
+                        <td>牢度要求：${task.fastness}</td>
+                        <td>产品用途：${task.application}</td>
+                        <td>浆边浆切边：${task.slice}</td>
+                        <td>功能性整理：${task.function}</td>
+                        <td>生产备注：${task.remark}</td>
                     </tr>
                 </div>
 
