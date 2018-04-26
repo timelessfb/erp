@@ -66,7 +66,6 @@
                 <th>生产日期</th>
                 <th>生产流程</th>
                 <th>当前生产状态</th>
-                <%--<th>详情</th>--%>
                 <%--<th>客户名</th>--%>
 
             </tr>
@@ -135,26 +134,37 @@
                     <tr>
                         <td>${task.taskno}</td>
                         <td>${task.orderno}</td>
-                        <td><fmt:formatDate value="${tasks.orderno}" type="date"/></td>
+                        <td><fmt:formatDate value="${tasks.dateofproduce}" type="date"/></td>
                         <td>${task.process}</td>
                         <td>${task.curstate}</td>
-                            <%--<td>${task.curstate}</td>详情--%>
-                            <%--<td>${order.customer}</td>--%>
-                            <%--<td><fmt:formatDate value="${tasks.orderno}" type="date"/></td>--%>
-                            <%--<td>${order.countofcloth}</td>--%>
-                            <%--<td>${order.weight}</td>--%>
-                            <%--<td>${order.uncompleted}</td>--%>
-                            <%--<td>${order.remarkoftype}</td>--%>
                     </tr>
                 </p>
                 <div class="trace_content" style="display: none;">
                     <tr>
-                        <td>
-                            详情1
-                        </td>
-                        <td>
-                            详情2
-                        </td>
+                        <td>毛坯区号：${task.workblankno}</td>
+                        <td>色名：${task.colorname}</td>
+                        <td>色号：${task.colorno}</td>
+                        <td>交货期：${task.deadline}</td>
+                        <td>品种：${task.type}</td>
+                        <td>坯布克重：${task.weightpercloth}</td>
+                        <td>寸口：${task.mouse}</td>
+                        <td>匹数：${task.countofclothoftask}</td>
+                        <td>重量：${task.weightoftask}</td>
+                        <td>门幅克重：${task.weightperdoor}</td>
+                        <td>定染类别：${task.dyetype}</td>
+                            <%--<td>对色光源：${task.dyetype}</td>--%>
+                        <td>对色面：${task.dyetype}</td>
+                        <td>ph值：${task.dyetype}</td>
+                        <td>去油：${task.dyetype}</td>
+                        <td>固色：${task.dyetype}</td>
+                        <td>抛光：${task.dyetype}</td>
+                        <td>色差要求：${task.dyetype}</td>
+                        <td>检测标准：${task.dyetype}</td>
+                        <td>牢度要求：${task.dyetype}</td>
+                        <td>产品用途：${task.dyetype}</td>
+                        <td>浆边浆切边：${task.dyetype}</td>
+                        <td>生理性整理：${task.dyetype}</td>
+                        <td>生产备注：${task.dyetype}</td>
                     </tr>
                 </div>
 
