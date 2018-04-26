@@ -61,6 +61,7 @@
                 <th>重量</th>
                 <th>未完成匹数</th>
                 <th>品种备注</th>
+                <th>操作</th>
             </tr>
             </thead>
             <tbody>
@@ -74,6 +75,18 @@
                     <td>${order.weight}</td>
                     <td>${order.uncompleted}</td>
                     <td>${order.remarkoftype}</td>
+                    <td>
+                        <form action="/erp/taskOperation">
+                            <input type="button" name="operation" value="排缸操作">
+                        </form>
+                        <form action="/erp/taskUpdate">
+                            <input type="button" name="update" value="修改订单">
+                        </form>
+                        <form action="/erp/taskDelete">
+                            <input type="button" name="delete" value="删除订单">
+                        </form>
+                    </td>
+
                 </tr>
             </c:forEach>
             </tbody>
