@@ -20,7 +20,7 @@
 <
 <script type="text/javascript">
     function formSubmit(){
-        if (document.getElementById("name").value == ""){
+        if (document.getElementById("userPhoneno").value == ""){
             document.getElementById("RequiredFieldValidator3").style.visibility="visible";
             return false;
         } else if (document.getElementById("password").value == ""){
@@ -34,7 +34,7 @@
         document.getElementById("password").keyup(function () {
             document.getElementById("RequiredFieldValidator3").style.visibility="hidden";
         });
-        document.getElementById("name").keyup(function () {
+        document.getElementById("userPhoneno").keyup(function () {
             document.getElementById("RequiredFieldValidator4").style.visibility="hidden";
         });
     });
@@ -70,13 +70,13 @@
                                         <TR>
                                             <TD style="HEIGHT: 28px" width=80>登 录 名：</TD>
                                             <TD style="HEIGHT: 28px" width=150>
-                                                <INPUT id="name" style="WIDTH: 130px" name="name" placeholder="用户名" type="text"></TD>
+                                                <INPUT id="userPhoneno" style="WIDTH: 130px" name="userPhoneno" placeholder="用户名" type="text"></TD>
                                             <TD style="HEIGHT: 28px" width=370>
                                                 <SPAN id="RequiredFieldValidator3" style="FONT-WEIGHT: bold; VISIBILITY: hidden; COLOR: white">请输入登录名</SPAN></TD></TR>
                                         <TR>
                                             <TD style="HEIGHT: 28px">登录密码：</TD>
                                             <TD style="HEIGHT: 28px">
-                                                <INPUT id="password" style="WIDTH: 130px" type=password name="password" placeholder="密码" type="text"></TD>
+                                                <INPUT id="userPassword" style="WIDTH: 130px" type=password name="userPassword" placeholder="密码" type="text"></TD>
                                             <TD style="HEIGHT: 28px">
                                                 <SPAN id="RequiredFieldValidator4" style="FONT-WEIGHT: bold; VISIBILITY: hidden; COLOR: white">请输入密码</SPAN></TD></TR>
                                         <%--<TR>--%>

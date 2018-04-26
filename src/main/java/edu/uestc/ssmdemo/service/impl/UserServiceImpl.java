@@ -18,8 +18,8 @@ public class UserServiceImpl implements UserService {
     public Userinfo login(Userinfo user) {
         UserinfoExample example = new UserinfoExample();
         UserinfoExample.Criteria criteria = example.createCriteria();
-        criteria.andNameEqualTo(user.getName());
-        criteria.andPasswordEqualTo(user.getPassword());
+        criteria.andUserPhonenoEqualTo(user.getUserPhoneno());
+        criteria.andUserPasswordEqualTo(user.getUserPassword());
         List<Userinfo> sysUsers = userinfoMapper.selectByExample(example);
         if (sysUsers != null && sysUsers.size() >= 1){
             return sysUsers.get(0);

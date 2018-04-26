@@ -1,33 +1,43 @@
 package edu.uestc.ssmdemo.entity;
 
 public class Userinfo {
-    private Integer phoneno;
+    private Long userId;
 
-    private String name;
+    private String userPhoneno;
 
-    private String password;
+    private String userName;
 
-    public Integer getPhoneno() {
-        return phoneno;
+    private String userPassword;
+
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setPhoneno(Integer phoneno) {
-        this.phoneno = phoneno;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public String getUserPhoneno() {
+        return userPhoneno;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setUserPhoneno(String userPhoneno) {
+        this.userPhoneno = userPhoneno == null ? null : userPhoneno.trim();
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword == null ? null : userPassword.trim();
     }
 }

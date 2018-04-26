@@ -10,7 +10,7 @@ public interface UserinfoMapper {
 
     int deleteByExample(UserinfoExample example);
 
-    int deleteByPrimaryKey(Integer phoneno);
+    int deleteByPrimaryKey(Long userId);
 
     int insert(Userinfo record);
 
@@ -18,7 +18,7 @@ public interface UserinfoMapper {
 
     List<Userinfo> selectByExample(UserinfoExample example);
 
-    Userinfo selectByPrimaryKey(Integer phoneno);
+    Userinfo selectByPrimaryKey(Long userId);
 
     int updateByExampleSelective(@Param("record") Userinfo record, @Param("example") UserinfoExample example);
 

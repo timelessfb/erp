@@ -44,9 +44,13 @@ CREATE TABLE IF NOT EXISTS Tasktable (
   CHARSET = utf8;
 
 
-CREATE TABLE userInfo (
-  phoneNo  INT(11)     NOT NULL PRIMARY KEY,
-  name     VARCHAR(4)  NOT NULL,
-  password VARCHAR(10) NOT NULL
-)
-  CHARSET = utf8;
+use erp;
+DROP table if EXISTS userinfo;
+
+CREATE TABLE userinfo (
+  user_id BIGINT(32)  NOT NULL AUTO_INCREMENT ,
+  user_phoneNo  VARCHAR(11) NOT NULL,
+  user_name     VARCHAR(9)  NOT NULL,
+  user_password VARCHAR(10) NOT NULL,
+  PRIMARY KEY (user_id)
+)ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;

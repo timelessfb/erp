@@ -2,9 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.uestc.ssmdemo.dao.UserinfoMapper">
   <resultMap id="BaseResultMap" type="edu.uestc.ssmdemo.entity.Userinfo">
-    <id column="phoneNo" jdbcType="INTEGER" property="phoneno" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_phoneNo" jdbcType="VARCHAR" property="userPhoneno" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    phoneNo, name, password
+    user_id, user_phoneNo, user_name, user_password
   </sql>
   <select id="selectByExample" parameterType="edu.uestc.ssmdemo.entity.UserinfoExample" resultMap="BaseResultMap">
     select
@@ -81,15 +82,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from userinfo
-    where phoneNo = #{phoneno,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from userinfo
-    where phoneNo = #{phoneno,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="edu.uestc.ssmdemo.entity.UserinfoExample">
     delete from userinfo
@@ -98,33 +99,39 @@
     </if>
   </delete>
   <insert id="insert" parameterType="edu.uestc.ssmdemo.entity.Userinfo">
-    insert into userinfo (phoneNo, name, password
-      )
-    values (#{phoneno,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
-      )
+    insert into userinfo (user_id, user_phoneNo, user_name, 
+      user_password)
+    values (#{userId,jdbcType=BIGINT}, #{userPhoneno,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{userPassword,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="edu.uestc.ssmdemo.entity.Userinfo">
     insert into userinfo
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="phoneno != null">
-        phoneNo,
+      <if test="userId != null">
+        user_id,
       </if>
-      <if test="name != null">
-        name,
+      <if test="userPhoneno != null">
+        user_phoneNo,
       </if>
-      <if test="password != null">
-        password,
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userPassword != null">
+        user_password,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="phoneno != null">
-        #{phoneno,jdbcType=INTEGER},
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
       </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
+      <if test="userPhoneno != null">
+        #{userPhoneno,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null">
+        #{userPassword,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -137,14 +144,17 @@
   <update id="updateByExampleSelective" parameterType="map">
     update userinfo
     <set>
-      <if test="record.phoneno != null">
-        phoneNo = #{record.phoneno,jdbcType=INTEGER},
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
-      <if test="record.name != null">
-        name = #{record.name,jdbcType=VARCHAR},
+      <if test="record.userPhoneno != null">
+        user_phoneNo = #{record.userPhoneno,jdbcType=VARCHAR},
       </if>
-      <if test="record.password != null">
-        password = #{record.password,jdbcType=VARCHAR},
+      <if test="record.userName != null">
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPassword != null">
+        user_password = #{record.userPassword,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -153,9 +163,10 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update userinfo
-    set phoneNo = #{record.phoneno,jdbcType=INTEGER},
-      name = #{record.name,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR}
+    set user_id = #{record.userId,jdbcType=BIGINT},
+      user_phoneNo = #{record.userPhoneno,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      user_password = #{record.userPassword,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -163,19 +174,23 @@
   <update id="updateByPrimaryKeySelective" parameterType="edu.uestc.ssmdemo.entity.Userinfo">
     update userinfo
     <set>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
+      <if test="userPhoneno != null">
+        user_phoneNo = #{userPhoneno,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
-        password = #{password,jdbcType=VARCHAR},
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null">
+        user_password = #{userPassword,jdbcType=VARCHAR},
       </if>
     </set>
-    where phoneNo = #{phoneno,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="edu.uestc.ssmdemo.entity.Userinfo">
     update userinfo
-    set name = #{name,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR}
-    where phoneNo = #{phoneno,jdbcType=INTEGER}
+    set user_phoneNo = #{userPhoneno,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_password = #{userPassword,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=BIGINT}
   </update>
 </mapper>

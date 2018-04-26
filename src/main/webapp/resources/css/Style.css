@@ -58,3 +58,19 @@ A:hover {
 .redinfo {
 	COLOR: #ff0000
 }
+table.registerTable button {
+	width: 170px;
+	height: 36px;
+	border-radius: 2px;
+	color: white;
+	background-color: #C40000;
+	border-width: 0px;
+}
+
+div.registerErrorMessageDiv {
+	width: 600px;
+	margin: 0px auto;
+	height: 50px;
+	visibility: visible;
+}
+

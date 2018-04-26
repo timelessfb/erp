@@ -153,7 +153,7 @@ A.active {
 											cellPadding=2 width=155 align=center border=0>
 											<TBODY>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }" target=main>－ 新增管理员</A></TD>
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }/addAdmin" target=main>－ 新增管理员</A></TD>
 												</TR>
 												<TR>
 													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }/linkman_findByPage" target=main>－ 管理员列表</A></TD>

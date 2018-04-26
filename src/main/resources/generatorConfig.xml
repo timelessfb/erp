@@ -38,8 +38,8 @@
         </javaClientGenerator>
 
 
-        <table tableName="orderTable"/>
-        <table tableName="TaskTable"/>
+        <!--<table tableName="orderTable"/>-->
+        <!--<table tableName="TaskTable"/>-->
         <table tableName="userInfo"/>
 
 
