@@ -9,39 +9,40 @@ CREATE TABLE IF NOT EXISTS orderTable (
 )
   CHARSET = utf8;
 
-CREATE TABLE IF NOT EXISTS Tasktable (
-  taskNo             VARCHAR(20) PRIMARY KEY NOT NULL,
-  orderNo            VARCHAR(20)             NOT NULL,
-  workblankNo        VARCHAR(10),
-  dateOfProduce      DATE,
-  colorName          VARCHAR(10),
-  colorNo            VARCHAR(10),
-  deadLine           VARCHAR(20),
-  type               VARCHAR(10),
-  weightPerCloth     VARCHAR(10),
-  mouse              VARCHAR(10),
-  countOfClothOfTask VARCHAR(10),
-  weightOfTask       VARCHAR(10),
-  weightPerDoor      VARCHAR(10),
-  dyeType            VARCHAR(10),
-  lightSource        VARCHAR(10),
-  LightFace          VARCHAR(10),
-  PH                 DOUBLE(2, 1),
-  deoil              VARCHAR(10),
-  fixation           VARCHAR(10),
-  polish             VARCHAR(10),
-  aberration         VARCHAR(10),
-  detection          VARCHAR(10),
-  fastness           VARCHAR(10),
-  application        VARCHAR(10),
-  slice              VARCHAR(10),
-  function           VARCHAR(10),
-  remark             VARCHAR(1000),
-  process            BLOB,
-  curState           VARCHAR(10),
-  nextState          VARCHAR(10)
-)
-  CHARSET = utf8;
+drop table if EXISTS tasktable;
+CREATE TABLE `tasktable` (
+             `taskNo` varchar(20) NOT NULL,
+             `orderNo` varchar(100) NOT NULL,
+             `workblankNo` varchar(10) DEFAULT NULL,
+             `dateOfProduce` date DEFAULT NULL,
+             `colorName` varchar(10) DEFAULT NULL,
+             `colorNo` varchar(10) DEFAULT NULL,
+             `deadLine` varchar(20) DEFAULT NULL,
+             `type` varchar(10) DEFAULT NULL,
+             `weightPerCloth` varchar(10) DEFAULT NULL,
+             `mouse` varchar(10) DEFAULT NULL,
+             `countOfClothOfTask` varchar(10) DEFAULT NULL,
+             `weightOfTask` varchar(10) DEFAULT NULL,
+             `weightPerDoor` varchar(10) DEFAULT NULL,
+             `dyeType` varchar(10) DEFAULT NULL,
+             `lightSource` varchar(10) DEFAULT NULL,
+             `LightFace` varchar(10) DEFAULT NULL,
+             `PH` double(2,1) DEFAULT NULL,
+             `deoil` varchar(10) DEFAULT NULL,
+             `fixation` varchar(10) DEFAULT NULL,
+             `polish` varchar(10) DEFAULT NULL,
+             `aberration` varchar(10) DEFAULT NULL,
+             `detection` varchar(10) DEFAULT NULL,
+             `fastness` varchar(10) DEFAULT NULL,
+             `application` varchar(10) DEFAULT NULL,
+             `slice` varchar(10) DEFAULT NULL,
+             `function` varchar(10) DEFAULT NULL,
+             `remark` varchar(1000) DEFAULT NULL,
+             `process` varchar(50) DEFAULT NULL,
+             `curState` varchar(10) DEFAULT '未工作',
+             `nextState` varchar(10) DEFAULT NULL,
+             PRIMARY KEY (`taskNo`)
+           ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 
 use erp;

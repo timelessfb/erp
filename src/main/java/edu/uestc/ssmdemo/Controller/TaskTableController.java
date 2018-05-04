@@ -104,7 +104,7 @@ public class TaskTableController {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         //拼接二维码地址
         String URL = "www.baidu.com";
-        
+
         QRCodeUtil.encode(URL,outputStream);
 
         return new ResponseEntity<byte[]>(outputStream.toByteArray(),headers, HttpStatus.CREATED);

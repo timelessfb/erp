@@ -3,6 +3,7 @@ package edu.uestc.ssmdemo.service.impl;
 import edu.uestc.ssmdemo.Model.OrderVo;
 import edu.uestc.ssmdemo.dao.OrdertableMapper;
 import edu.uestc.ssmdemo.entity.Ordertable;
+import edu.uestc.ssmdemo.entity.OrdertableExample;
 import edu.uestc.ssmdemo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,14 @@ public class OrderServiceImpl implements OrderService {
     public List<Ordertable> queryOrderByCustomerNameAndDate(OrderVo orderVo) {
         List<Ordertable> ordertables = ordertableMapper.queryOrderByCustomerNameAndDate(orderVo);
         return ordertables;
+    }
+
+    public Ordertable queryOrderByOrderNo(String orderNo) {
+        Ordertable ordertable = ordertableMapper.selectByPrimaryKey(orderNo);
+        return ordertable;
+    }
+
+    public void deleteByOrderNo(String orderNo) {
+        ordertableMapper.deleteByPrimaryKey(orderNo);
     }
 }

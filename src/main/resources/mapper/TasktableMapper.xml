@@ -29,11 +29,9 @@
     <result column="slice" jdbcType="VARCHAR" property="slice" />
     <result column="function" jdbcType="VARCHAR" property="function" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="process" jdbcType="VARCHAR" property="process" />
     <result column="curState" jdbcType="VARCHAR" property="curstate" />
     <result column="nextState" jdbcType="VARCHAR" property="nextstate" />
-  </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="edu.uestc.ssmdemo.entity.Tasktable">
-    <result column="process" jdbcType="LONGVARBINARY" property="process" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -97,27 +95,8 @@
     taskNo, orderNo, workblankNo, dateOfProduce, colorName, colorNo, deadLine, type, 
     weightPerCloth, mouse, countOfClothOfTask, weightOfTask, weightPerDoor, dyeType, 
     lightSource, LightFace, PH, deoil, fixation, polish, aberration, detection, fastness, 
-    application, slice, function, remark, curState, nextState
+    application, slice, function, remark, process, curState, nextState
   </sql>
-  <sql id="Blob_Column_List">
-    process
-  </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="edu.uestc.ssmdemo.entity.TasktableExample" resultMap="ResultMapWithBLOBs">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from tasktable
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByExample" parameterType="edu.uestc.ssmdemo.entity.TasktableExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -132,11 +111,9 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from tasktable
     where taskNo = #{taskno,jdbcType=VARCHAR}
   </select>
@@ -160,7 +137,7 @@
       fixation, polish, aberration, 
       detection, fastness, application, 
       slice, function, remark, 
-      curState, nextState, process
+      process, curState, nextState
       )
     values (#{taskno,jdbcType=VARCHAR}, #{orderno,jdbcType=VARCHAR}, #{workblankno,jdbcType=VARCHAR}, 
       #{dateofproduce,jdbcType=DATE}, #{colorname,jdbcType=VARCHAR}, #{colorno,jdbcType=VARCHAR}, 
@@ -171,7 +148,7 @@
       #{fixation,jdbcType=VARCHAR}, #{polish,jdbcType=VARCHAR}, #{aberration,jdbcType=VARCHAR}, 
       #{detection,jdbcType=VARCHAR}, #{fastness,jdbcType=VARCHAR}, #{application,jdbcType=VARCHAR}, 
       #{slice,jdbcType=VARCHAR}, #{function,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
-      #{curstate,jdbcType=VARCHAR}, #{nextstate,jdbcType=VARCHAR}, #{process,jdbcType=LONGVARBINARY}
+      #{process,jdbcType=VARCHAR}, #{curstate,jdbcType=VARCHAR}, #{nextstate,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="edu.uestc.ssmdemo.entity.Tasktable">
@@ -258,14 +235,14 @@
       <if test="remark != null">
         remark,
       </if>
+      <if test="process != null">
+        process,
+      </if>
       <if test="curstate != null">
         curState,
       </if>
       <if test="nextstate != null">
         nextState,
-      </if>
-      <if test="process != null">
-        process,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -350,14 +327,14 @@
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
+      <if test="process != null">
+        #{process,jdbcType=VARCHAR},
+      </if>
       <if test="curstate != null">
         #{curstate,jdbcType=VARCHAR},
       </if>
       <if test="nextstate != null">
         #{nextstate,jdbcType=VARCHAR},
-      </if>
-      <if test="process != null">
-        #{process,jdbcType=LONGVARBINARY},
       </if>
     </trim>
   </insert>
@@ -451,52 +428,16 @@
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
       </if>
+      <if test="record.process != null">
+        process = #{record.process,jdbcType=VARCHAR},
+      </if>
       <if test="record.curstate != null">
         curState = #{record.curstate,jdbcType=VARCHAR},
       </if>
       <if test="record.nextstate != null">
         nextState = #{record.nextstate,jdbcType=VARCHAR},
       </if>
-      <if test="record.process != null">
-        process = #{record.process,jdbcType=LONGVARBINARY},
-      </if>
     </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map">
-    update tasktable
-    set taskNo = #{record.taskno,jdbcType=VARCHAR},
-      orderNo = #{record.orderno,jdbcType=VARCHAR},
-      workblankNo = #{record.workblankno,jdbcType=VARCHAR},
-      dateOfProduce = #{record.dateofproduce,jdbcType=DATE},
-      colorName = #{record.colorname,jdbcType=VARCHAR},
-      colorNo = #{record.colorno,jdbcType=VARCHAR},
-      deadLine = #{record.deadline,jdbcType=VARCHAR},
-      type = #{record.type,jdbcType=VARCHAR},
-      weightPerCloth = #{record.weightpercloth,jdbcType=VARCHAR},
-      mouse = #{record.mouse,jdbcType=VARCHAR},
-      countOfClothOfTask = #{record.countofclothoftask,jdbcType=VARCHAR},
-      weightOfTask = #{record.weightoftask,jdbcType=VARCHAR},
-      weightPerDoor = #{record.weightperdoor,jdbcType=VARCHAR},
-      dyeType = #{record.dyetype,jdbcType=VARCHAR},
-      lightSource = #{record.lightsource,jdbcType=VARCHAR},
-      LightFace = #{record.lightface,jdbcType=VARCHAR},
-      PH = #{record.ph,jdbcType=DOUBLE},
-      deoil = #{record.deoil,jdbcType=VARCHAR},
-      fixation = #{record.fixation,jdbcType=VARCHAR},
-      polish = #{record.polish,jdbcType=VARCHAR},
-      aberration = #{record.aberration,jdbcType=VARCHAR},
-      detection = #{record.detection,jdbcType=VARCHAR},
-      fastness = #{record.fastness,jdbcType=VARCHAR},
-      application = #{record.application,jdbcType=VARCHAR},
-      slice = #{record.slice,jdbcType=VARCHAR},
-      function = #{record.function,jdbcType=VARCHAR},
-      remark = #{record.remark,jdbcType=VARCHAR},
-      curState = #{record.curstate,jdbcType=VARCHAR},
-      nextState = #{record.nextstate,jdbcType=VARCHAR},
-      process = #{record.process,jdbcType=LONGVARBINARY}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -530,6 +471,7 @@
       slice = #{record.slice,jdbcType=VARCHAR},
       function = #{record.function,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=VARCHAR},
+      process = #{record.process,jdbcType=VARCHAR},
       curState = #{record.curstate,jdbcType=VARCHAR},
       nextState = #{record.nextstate,jdbcType=VARCHAR}
     <if test="_parameter != null">
@@ -617,49 +559,16 @@
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
       </if>
+      <if test="process != null">
+        process = #{process,jdbcType=VARCHAR},
+      </if>
       <if test="curstate != null">
         curState = #{curstate,jdbcType=VARCHAR},
       </if>
       <if test="nextstate != null">
         nextState = #{nextstate,jdbcType=VARCHAR},
       </if>
-      <if test="process != null">
-        process = #{process,jdbcType=LONGVARBINARY},
-      </if>
     </set>
-    where taskNo = #{taskno,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="edu.uestc.ssmdemo.entity.Tasktable">
-    update tasktable
-    set orderNo = #{orderno,jdbcType=VARCHAR},
-      workblankNo = #{workblankno,jdbcType=VARCHAR},
-      dateOfProduce = #{dateofproduce,jdbcType=DATE},
-      colorName = #{colorname,jdbcType=VARCHAR},
-      colorNo = #{colorno,jdbcType=VARCHAR},
-      deadLine = #{deadline,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR},
-      weightPerCloth = #{weightpercloth,jdbcType=VARCHAR},
-      mouse = #{mouse,jdbcType=VARCHAR},
-      countOfClothOfTask = #{countofclothoftask,jdbcType=VARCHAR},
-      weightOfTask = #{weightoftask,jdbcType=VARCHAR},
-      weightPerDoor = #{weightperdoor,jdbcType=VARCHAR},
-      dyeType = #{dyetype,jdbcType=VARCHAR},
-      lightSource = #{lightsource,jdbcType=VARCHAR},
-      LightFace = #{lightface,jdbcType=VARCHAR},
-      PH = #{ph,jdbcType=DOUBLE},
-      deoil = #{deoil,jdbcType=VARCHAR},
-      fixation = #{fixation,jdbcType=VARCHAR},
-      polish = #{polish,jdbcType=VARCHAR},
-      aberration = #{aberration,jdbcType=VARCHAR},
-      detection = #{detection,jdbcType=VARCHAR},
-      fastness = #{fastness,jdbcType=VARCHAR},
-      application = #{application,jdbcType=VARCHAR},
-      slice = #{slice,jdbcType=VARCHAR},
-      function = #{function,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      curState = #{curstate,jdbcType=VARCHAR},
-      nextState = #{nextstate,jdbcType=VARCHAR},
-      process = #{process,jdbcType=LONGVARBINARY}
     where taskNo = #{taskno,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="edu.uestc.ssmdemo.entity.Tasktable">
@@ -690,6 +599,7 @@
       slice = #{slice,jdbcType=VARCHAR},
       function = #{function,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
+      process = #{process,jdbcType=VARCHAR},
       curState = #{curstate,jdbcType=VARCHAR},
       nextState = #{nextstate,jdbcType=VARCHAR}
     where taskNo = #{taskno,jdbcType=VARCHAR}

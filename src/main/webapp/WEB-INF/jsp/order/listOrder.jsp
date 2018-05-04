@@ -12,15 +12,19 @@
 <head>
     <meta charset="utf-8">
     <title>管理系统</title>
-    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
-    <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="jqueryui/style.css">
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/style.css">
 </head>
 <body>
 
 <%--<a href="/erp/testentry" >测试</a>--%>
+<script type="text/javascript">
 
+
+
+</script>
 <table >
     <tr align="center">
         <td>客户名</td>
@@ -76,13 +80,16 @@
                     <td>${order.uncompleted}</td>
                     <td>${order.remarkoftype}</td>
                     <td>
-                        <form action="/erp/taskOperation">
-                            <input type="button" name="operation" value="排缸操作">
+                        <form action="taskOperation">
+                            <input  type="hidden" name="orderNo" value="${order.orderno}"/>
+                            <input type="submit" class="button" name="operation" value="排缸操作">
+                            <%--<button value="排缸操作" type="submit"></button>--%>
                         </form>
-                        <form action="/erp/taskUpdate">
-                            <input type="button" name="update" value="修改订单">
-                        </form>
-                        <form action="/erp/taskDelete">
+                        <%--<form action="taskUpdate">--%>
+                            <%--<input type="button" name="update" value="修改订单">--%>
+                        <%--</form>--%>
+                        <form action="deleteOrder">
+                            <input  type="hidden" name="orderNo" value="${order.orderno}"/>
                             <input type="button" name="delete" value="删除订单">
                         </form>
                     </td>

@@ -11,4 +11,8 @@ import java.util.List;
 public interface OrderService {
     int insertOrder(Ordertable ordertable);
     List<Ordertable> queryOrderByCustomerNameAndDate(OrderVo orderVo);
+
+    Ordertable queryOrderByOrderNo(String orderNo);
+
+    void deleteByOrderNo(String orderNo);
 }

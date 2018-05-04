@@ -17,21 +17,15 @@ public interface TasktableMapper {
 
     int insertSelective(Tasktable record);
 
-    List<Tasktable> selectByExampleWithBLOBs(TasktableExample example);
-
     List<Tasktable> selectByExample(TasktableExample example);
 
     Tasktable selectByPrimaryKey(String taskno);
 
     int updateByExampleSelective(@Param("record") Tasktable record, @Param("example") TasktableExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") Tasktable record, @Param("example") TasktableExample example);
-
     int updateByExample(@Param("record") Tasktable record, @Param("example") TasktableExample example);
 
     int updateByPrimaryKeySelective(Tasktable record);
-
-    int updateByPrimaryKeyWithBLOBs(Tasktable record);
 
     int updateByPrimaryKey(Tasktable record);
 }

@@ -23,14 +23,23 @@ public class ConvertUtil {
 
         Tasktable tasktable = new Tasktable();
         BeanRefUtil.TasktableVo2Tasktable(tasktableVo,tasktable);
-        ProcessVo processVo = new ProcessVo();
-        for (String p : tasktableVo.getProcess()) {
-            Process process = new Process();
-            process.setProcess(p);
-            processVo.getProcesseList().add(process);
+        String[] process = tasktableVo.getProcess();
+        StringBuffer sb = new StringBuffer();
+        for (String s:process
+             ) {
+            sb.append(s);
+            sb.append(",");
         }
-        byte[] processBytes = SerializeObjectTool.SerializeObject(processVo);
-        tasktable.setProcess(processBytes);
+        tasktable.setProcess(sb.substring(0,sb.length() - 1).toString());
+
+//        ProcessVo processVo = new ProcessVo();
+//        for (String p : tasktableVo.getProcess()) {
+//            Process process = new Process();
+//            process.setProcess(p);
+//            processVo.getProcesseList().add(process);
+//        }
+//        byte[] processBytes = SerializeObjectTool.SerializeObject(processVo);
+//        tasktable.setProcess(processBytes);
         return  tasktable;
     }
 
@@ -42,10 +51,10 @@ public class ConvertUtil {
         String remarkoftype = orderTableVo.getRemarkoftype();
         String countofcloth = orderTableVo.getCountofcloth();
 
-        Assert.assertTrue("countofclothÎª¿Õ",countofcloth !=null && !"".equals(countofcloth));
-        Assert.assertTrue("customerÎª¿Õ",customer !=null && !"".equals(customer));
-        Assert.assertTrue("weightÎª¿Õ",weight !=null && !"".equals(weight));
-        Assert.assertTrue("remarkoftypeÎª¿Õ",remarkoftype !=null && !"".equals(remarkoftype));
+        Assert.assertTrue("countofclothÎªï¿½ï¿½",countofcloth !=null && !"".equals(countofcloth));
+        Assert.assertTrue("customerÎªï¿½ï¿½",customer !=null && !"".equals(customer));
+        Assert.assertTrue("weightÎªï¿½ï¿½",weight !=null && !"".equals(weight));
+        Assert.assertTrue("remarkoftypeÎªï¿½ï¿½",remarkoftype !=null && !"".equals(remarkoftype));
 
         ordertable.setCustomer(customer);
         ordertable.setWeight(weight);
@@ -56,7 +65,7 @@ public class ConvertUtil {
 //        try {
 //            date = simpleDateFormat.parse(dateVo);
 //        } catch (ParseException e) {
-//            logger.error("OrderTableVo2Ordertable ÈÕÆÚ×ª»»Òì³£");
+//            logger.error("OrderTableVo2Ordertable ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ì³£");
 //        }
 //        ordertable.setDate(date);
 

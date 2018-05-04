@@ -54,4 +54,10 @@ public class OrderController {
     public String test(){
         return "order/dateselect";
     }
+
+    @RequestMapping("deleteOrder")
+    public String deleteOrder(String orderNo){
+        orderService.deleteByOrderNo(orderNo);
+        return "order/listOrder";
+    }
 }

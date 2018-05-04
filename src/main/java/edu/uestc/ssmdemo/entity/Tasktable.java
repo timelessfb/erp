@@ -57,11 +57,11 @@ public class Tasktable {
 
     private String remark;
 
+    private String process;
+
     private String curstate;
 
     private String nextstate;
-
-    private byte[] process;
 
     public String getTaskno() {
         return taskno;
@@ -279,6 +279,14 @@ public class Tasktable {
         this.remark = remark == null ? null : remark.trim();
     }
 
+    public String getProcess() {
+        return process;
+    }
+
+    public void setProcess(String process) {
+        this.process = process == null ? null : process.trim();
+    }
+
     public String getCurstate() {
         return curstate;
     }
@@ -293,13 +301,5 @@ public class Tasktable {
 
     public void setNextstate(String nextstate) {
         this.nextstate = nextstate == null ? null : nextstate.trim();
-    }
-
-    public byte[] getProcess() {
-        return process;
-    }
-
-    public void setProcess(byte[] process) {
-        this.process = process;
     }
 }
