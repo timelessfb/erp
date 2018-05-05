@@ -15,4 +15,8 @@ public interface OrderService {
     Ordertable queryOrderByOrderNo(String orderNo);
 
     void deleteByOrderNo(String orderNo);
+
+    void subClothOfOrder(String orderno, String countofclothoftask);
+
+    void addClothOfOrder(String taskNo, String orderNo);
 }

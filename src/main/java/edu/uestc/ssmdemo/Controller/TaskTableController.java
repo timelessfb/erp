@@ -76,6 +76,8 @@ public class TaskTableController {
         Tasktable tasktable = ConvertUtil.TasktableVo2Tasktable(tasktableVo);
         taskTableService.insertTask(tasktable);
 
+        //修改订单匹数
+        orderService.subClothOfOrder(tasktableVo.getOrderno(),tasktableVo.getCountofclothoftask());
         model.addAttribute("orderNo",tasktableVo.getOrderno());
         return "redirect:taskOperation";
     }
@@ -91,6 +93,7 @@ public class TaskTableController {
     @RequestMapping("deleteTask")
     public String deleteTask(Model model, String taskNo, String orderNo){
         model.addAttribute("orderNo",orderNo);
+        orderService.addClothOfOrder(taskNo,orderNo);
         taskTableService.deleteTaskByTaskNo(taskNo);
         return "redirect:taskOperation";
     }

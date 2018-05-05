@@ -24,6 +24,7 @@ public class GeneratorSqlMap {
     }
 
     public static void main(String[] args) throws Exception {
+        int x = 1/0;
         try {
             GeneratorSqlMap generatorSqlMap = new GeneratorSqlMap();
             generatorSqlMap.generator();

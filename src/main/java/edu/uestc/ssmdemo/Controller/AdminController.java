@@ -1,6 +1,9 @@
 package edu.uestc.ssmdemo.Controller;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
+import edu.uestc.ssmdemo.entity.Producerinfo;
 import edu.uestc.ssmdemo.entity.Userinfo;
+import edu.uestc.ssmdemo.service.ProducerService;
 import edu.uestc.ssmdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +18,9 @@ public class AdminController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    ProducerService producerService;
 
     @RequestMapping("addAdmin")
     public String AddAdmin(){
@@ -63,6 +69,43 @@ public class AdminController {
     public String SaveEdit(Userinfo user){
         userService.saveEdit(user);
         return "authority_management/success";
+    }
+
+    //修改生产者登录信息
+    @RequestMapping("addPro")
+    public String  addPro(){
+        return "producer/add";
+    }
+
+    @RequestMapping("proaddsubmit")
+    public String proaddsubmit(Producerinfo producer, Model model){
+        String check = producerService.register(producer);
+        if (check.equals("yes")){
+            return "producer/success";//跳转到注册成功页面
+        }else if (check.equals("no")){
+            model.addAttribute("msg","用户名已经被使用,不能使用");
+        }
+        return "producer/add";
+    }
+    //生产者列表
+    @RequestMapping("listPro")
+    public String listPro(Model model){
+        List<Producerinfo> list = producerService.getListPro();
+        model.addAttribute("list",list);
+        return "producer/list";
+    }
+    //删除生产者
+    @RequestMapping("deletePro")
+    public String deletePro(@RequestParam(value = "Id") String Id){
+        producerService.deleteById(Long.valueOf(Id));
+        return "redirect:listPro";
+    }
+    //通过电话或者姓名查找生产者
+    @RequestMapping("findBynameOrPhonePro")
+    public String findBynameOrPhonePro(Model model, Producerinfo producer){
+        List<Producerinfo> list = producerService.findBynameOrPhone(producer);
+        model.addAttribute("list",list);
+        return "producer/list";
     }
 
 }

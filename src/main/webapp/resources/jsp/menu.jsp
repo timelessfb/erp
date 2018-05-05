@@ -158,6 +158,12 @@ A.active {
 												<TR>
 													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }/listAdmin" target=main>－ 管理员列表</A></TD>
 												</TR>
+												<TR>
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }/addPro" target=main>－ 新增生产者</A></TD>
+												</TR>
+												<TR>
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }/listPro" target=main>－ 生产者列表</A></TD>
+												</TR>
 												
 											</TBODY>
 										</TABLE>

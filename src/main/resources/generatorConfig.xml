@@ -40,8 +40,8 @@
 
         <!--<table tableName="orderTable"/>-->
         <!--<table tableName="TaskTable"/>-->
-        <table tableName="userInfo"/>
-
+        <!--<table tableName="userInfo"/>-->
+        <table tableName="producerinfo"/>
 
     </context>
 </generatorConfiguration>

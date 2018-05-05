@@ -40,4 +40,12 @@ public class TaskTableServiceImpl implements TaskTableService {
     public void deleteTaskByTaskNo(String taskNo) {
         tasktableMapper.deleteByPrimaryKey(taskNo);
     }
+
+    public void updataStatusByTaskNo(String taskno, String process) {
+        Tasktable tasktable = tasktableMapper.selectByPrimaryKey(taskno);
+        if (tasktable != null){
+            tasktable.setCurstate(process);
+            tasktableMapper.updateByPrimaryKey(tasktable);
+        }
+    }
 }

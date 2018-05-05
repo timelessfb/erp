@@ -15,4 +15,6 @@ public interface TaskTableService {
     List<Tasktable> queryTaskByOrderNo(String orderNo);
 
     void deleteTaskByTaskNo(String taskNo);
+
+    void updataStatusByTaskNo(String taskno, String process);
 }

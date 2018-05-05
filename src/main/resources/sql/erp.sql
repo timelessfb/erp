@@ -55,3 +55,13 @@ CREATE TABLE userinfo (
   user_password VARCHAR(10) NOT NULL,
   PRIMARY KEY (user_id)
 )ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+use erp;
+DROP table if EXISTS producerinfo;
+CREATE TABLE producerinfo (
+  id BIGINT(32)  NOT NULL AUTO_INCREMENT ,
+  phoneNo  VARCHAR(11) NOT NULL,
+  name     VARCHAR(9)  NOT NULL,
+  password VARCHAR(10) NOT NULL,
+  PRIMARY KEY (id)
+)ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
